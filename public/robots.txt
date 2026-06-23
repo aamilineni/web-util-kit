@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ilovepdfguru.com/sitemap.xml
+Sitemap: https://snappdf.com/sitemap.xml

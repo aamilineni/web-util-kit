@@ -8,7 +8,7 @@ import { SEO, usePageSeo } from '@/lib/seo'
 
 export function QrPage() {
   usePageSeo(SEO.qr)
-  const [text, setText] = useState('https://ilovepdfguru.com')
+  const [text, setText] = useState('https://snappdf.com')
   const [dataUrl, setDataUrl] = useState('')
   const [error, setError] = useState<string | null>(null)
 

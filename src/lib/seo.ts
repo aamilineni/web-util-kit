@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 import { ALL_TOOLS } from '@/config/tools'
 
-export const SITE_NAME = 'iLovePDFGuru'
-export const SITE_NAME_PREFIX = 'iLove'
-export const SITE_NAME_SUFFIX = 'PDFGuru'
-export const SITE_TAGLINE = 'Free Online PDF Tools — Merge, Split, Unlock & More'
-export const SITE_URL = import.meta.env.VITE_SITE_URL ?? 'https://ilovepdfguru.com'
+export const SITE_NAME = 'SnapPDF'
+export const SITE_NAME_PREFIX = 'Snap'
+export const SITE_NAME_SUFFIX = 'PDF'
+export const SITE_TAGLINE = 'Free PDF Tools — Merge, Split, Unlock & More'
+export const SITE_URL = import.meta.env.VITE_SITE_URL ?? 'https://snappdf.com'
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og.svg`
 
 export type PageSeo = {
@@ -16,9 +16,9 @@ export type PageSeo = {
 
 export const SEO = {
   home: {
-    title: `${SITE_NAME} — Free Online PDF Tools & Browser Utilities`,
+    title: `Free PDF Tools Online — Merge, Split & Unlock | ${SITE_NAME}`,
     description:
-      'iLovePDFGuru — free online PDF tools to unlock, merge, split, sign, and view PDFs, plus Base64, UUID, hash, AES, JWT, JSON, YAML, and more. No upload, no signup.',
+      'SnapPDF — free PDF tools to merge, split, unlock, sign, and view PDFs in your browser. Plus developer utilities. No upload, no signup.',
     path: '/',
   },
   merge: {
@@ -222,7 +222,7 @@ export const appJsonLd = {
     priceCurrency: 'USD',
   },
   description:
-    'iLovePDFGuru — free online PDF tools and private browser utilities for editing, encoding, encryption, and everyday tasks.',
+    'SnapPDF — free PDF tools and private browser utilities for editing, encoding, encryption, and everyday tasks.',
   featureList: ALL_TOOLS.map((tool) => tool.title),
 }
 

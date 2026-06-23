@@ -22,13 +22,23 @@ import {
   Shield,
   Unlock,
   Code2,
+  Sparkles,
 } from 'lucide-react'
+
+export type ToolSection = {
+  id: string
+  title: string
+  description?: string
+  tools: ToolDefinition[]
+}
 
 export type ToolCategory = {
   id: string
   title: string
   description: string
-  tools: ToolDefinition[]
+  icon: LucideIcon
+  sections?: ToolSection[]
+  tools?: ToolDefinition[]
 }
 
 export type ToolDefinition = {
@@ -45,6 +55,7 @@ export const TOOL_CATEGORIES: ToolCategory[] = [
     id: 'pdf',
     title: 'PDF Tools',
     description: 'Unlock, merge, split, view, and sign PDF files — private and free in your browser.',
+    icon: FileSignature,
     tools: [
       {
         id: 'unlock-pdf',
@@ -92,6 +103,7 @@ export const TOOL_CATEGORIES: ToolCategory[] = [
     id: 'time',
     title: 'Time Tools',
     description: 'World clocks, time zone comparison, and Unix timestamp conversion.',
+    icon: Globe,
     tools: [
       {
         id: 'world-clock',
@@ -115,110 +127,132 @@ export const TOOL_CATEGORIES: ToolCategory[] = [
     id: 'developer',
     title: 'Developer Tools',
     description: 'Encode, encrypt, decode, and generate — all client-side.',
-    tools: [
+    icon: Code2,
+    sections: [
       {
-        id: 'base64',
-        title: 'Base64 Encoder / Decoder',
-        description: 'Encode and decode text to Base64 instantly.',
-        path: '/base64',
-        icon: Binary,
-        keywords: ['base64 encode', 'base64 decode'],
+        id: 'encoding',
+        title: 'Encoding & Security',
+        description: 'Encode, hash, encrypt, and inspect tokens.',
+        tools: [
+          {
+            id: 'base64',
+            title: 'Base64 Encoder / Decoder',
+            description: 'Encode and decode text to Base64 instantly.',
+            path: '/base64',
+            icon: Binary,
+            keywords: ['base64 encode', 'base64 decode'],
+          },
+          {
+            id: 'uuid',
+            title: 'UUID Generator',
+            description: 'Generate one or many UUID v4 identifiers at once.',
+            path: '/uuid',
+            icon: Fingerprint,
+            keywords: ['uuid generator', 'guid generator'],
+          },
+          {
+            id: 'hash',
+            title: 'Hash Generator',
+            description: 'SHA-256, SHA-384, SHA-512 hashes — live as you type.',
+            path: '/hash',
+            icon: Hash,
+            keywords: ['sha256', 'hash generator', 'checksum'],
+          },
+          {
+            id: 'aes',
+            title: 'AES Encryption',
+            description: 'Encrypt and decrypt text with AES-256-GCM and a passphrase.',
+            path: '/aes',
+            icon: KeyRound,
+            keywords: ['aes encrypt', 'aes decrypt online'],
+          },
+          {
+            id: 'jwt',
+            title: 'JWT Decoder',
+            description: 'Decode and inspect JWT header, payload, and expiry.',
+            path: '/jwt',
+            icon: Shield,
+            keywords: ['jwt decoder', 'jwt viewer'],
+          },
+        ],
       },
       {
-        id: 'uuid',
-        title: 'UUID Generator',
-        description: 'Generate one or many UUID v4 identifiers at once.',
-        path: '/uuid',
-        icon: Fingerprint,
-        keywords: ['uuid generator', 'guid generator'],
+        id: 'data-formats',
+        title: 'JSON & YAML',
+        description: 'Format, validate, and compare structured data.',
+        tools: [
+          {
+            id: 'json',
+            title: 'JSON Formatter',
+            description: 'Pretty-print, minify, and validate JSON.',
+            path: '/json',
+            icon: Braces,
+            keywords: ['json formatter', 'json prettify'],
+          },
+          {
+            id: 'json-compare',
+            title: 'JSON Comparator',
+            description: 'Diff two JSON documents — added, removed, and changed fields.',
+            path: '/json-compare',
+            icon: GitCompare,
+            keywords: ['json compare', 'json diff', 'json comparator'],
+          },
+          {
+            id: 'yaml',
+            title: 'YAML Formatter',
+            description: 'Pretty-print, minify, and validate YAML.',
+            path: '/yaml',
+            icon: FileCode,
+            keywords: ['yaml formatter', 'yaml prettify', 'yaml validator'],
+          },
+          {
+            id: 'yaml-compare',
+            title: 'YAML Comparator',
+            description: 'Diff two YAML documents — added, removed, and changed fields.',
+            path: '/yaml-compare',
+            icon: GitCompare,
+            keywords: ['yaml compare', 'yaml diff', 'yaml comparator'],
+          },
+        ],
       },
       {
-        id: 'hash',
-        title: 'Hash Generator',
-        description: 'SHA-256, SHA-384, SHA-512 hashes — live as you type.',
-        path: '/hash',
-        icon: Hash,
-        keywords: ['sha256', 'hash generator', 'checksum'],
-      },
-      {
-        id: 'aes',
-        title: 'AES Encryption',
-        description: 'Encrypt and decrypt text with AES-256-GCM and a passphrase.',
-        path: '/aes',
-        icon: KeyRound,
-        keywords: ['aes encrypt', 'aes decrypt online'],
-      },
-      {
-        id: 'jwt',
-        title: 'JWT Decoder',
-        description: 'Decode and inspect JWT header, payload, and expiry.',
-        path: '/jwt',
-        icon: Shield,
-        keywords: ['jwt decoder', 'jwt viewer'],
-      },
-      {
-        id: 'json',
-        title: 'JSON Formatter',
-        description: 'Pretty-print, minify, and validate JSON.',
-        path: '/json',
-        icon: Braces,
-        keywords: ['json formatter', 'json prettify'],
-      },
-      {
-        id: 'json-compare',
-        title: 'JSON Comparator',
-        description: 'Diff two JSON documents — added, removed, and changed fields.',
-        path: '/json-compare',
-        icon: GitCompare,
-        keywords: ['json compare', 'json diff', 'json comparator'],
-      },
-      {
-        id: 'yaml',
-        title: 'YAML Formatter',
-        description: 'Pretty-print, minify, and validate YAML.',
-        path: '/yaml',
-        icon: FileCode,
-        keywords: ['yaml formatter', 'yaml prettify', 'yaml validator'],
-      },
-      {
-        id: 'yaml-compare',
-        title: 'YAML Comparator',
-        description: 'Diff two YAML documents — added, removed, and changed fields.',
-        path: '/yaml-compare',
-        icon: GitCompare,
-        keywords: ['yaml compare', 'yaml diff', 'yaml comparator'],
-      },
-      {
-        id: 'cron',
-        title: 'Cron Expression Parser',
-        description: 'Validate cron syntax, human-readable schedule, and next run times.',
-        path: '/cron',
-        icon: CalendarClock,
-        keywords: ['cron parser', 'cron expression', 'crontab'],
-      },
-      {
-        id: 'url',
-        title: 'URL Encoder / Decoder',
-        description: 'Encode or decode URLs and query strings.',
-        path: '/url',
-        icon: Link2,
-        keywords: ['url encode', 'url decode'],
-      },
-      {
-        id: 'regex',
-        title: 'Regex Tester',
-        description: 'Test regex patterns with live match highlighting.',
-        path: '/regex',
-        icon: Regex,
-        keywords: ['regex tester', 'regular expression'],
-      },
-      {
-        id: 'html',
-        title: 'HTML Encoder / Decoder',
-        description: 'Escape or unescape HTML entities.',
-        path: '/html',
-        icon: Code2,
-        keywords: ['html encode', 'html escape'],
+        id: 'text-web',
+        title: 'Text & Web',
+        description: 'Parse cron, encode URLs, test regex, and escape HTML.',
+        tools: [
+          {
+            id: 'cron',
+            title: 'Cron Expression Parser',
+            description: 'Validate cron syntax, human-readable schedule, and next run times.',
+            path: '/cron',
+            icon: CalendarClock,
+            keywords: ['cron parser', 'cron expression', 'crontab'],
+          },
+          {
+            id: 'url',
+            title: 'URL Encoder / Decoder',
+            description: 'Encode or decode URLs and query strings.',
+            path: '/url',
+            icon: Link2,
+            keywords: ['url encode', 'url decode'],
+          },
+          {
+            id: 'regex',
+            title: 'Regex Tester',
+            description: 'Test regex patterns with live match highlighting.',
+            path: '/regex',
+            icon: Regex,
+            keywords: ['regex tester', 'regular expression'],
+          },
+          {
+            id: 'html',
+            title: 'HTML Encoder / Decoder',
+            description: 'Escape or unescape HTML entities.',
+            path: '/html',
+            icon: Code2,
+            keywords: ['html encode', 'html escape'],
+          },
+        ],
       },
     ],
   },
@@ -226,6 +260,7 @@ export const TOOL_CATEGORIES: ToolCategory[] = [
     id: 'everyday',
     title: 'Everyday Tools',
     description: 'Handy utilities for passwords, colors, and QR codes.',
+    icon: Sparkles,
     tools: [
       {
         id: 'password',
@@ -255,12 +290,19 @@ export const TOOL_CATEGORIES: ToolCategory[] = [
   },
 ]
 
-export const ALL_TOOLS = TOOL_CATEGORIES.flatMap((category) => category.tools)
+export function getCategoryTools(category: ToolCategory): ToolDefinition[] {
+  if (category.sections?.length) {
+    return category.sections.flatMap((section) => section.tools)
+  }
+  return category.tools ?? []
+}
+
+export const ALL_TOOLS = TOOL_CATEGORIES.flatMap(getCategoryTools)
 
 export function findToolByPath(path: string) {
   return ALL_TOOLS.find((tool) => tool.path === path)
 }
 
 export function getCategoryForTool(path: string) {
-  return TOOL_CATEGORIES.find((category) => category.tools.some((tool) => tool.path === path))
+  return TOOL_CATEGORIES.find((category) => getCategoryTools(category).some((tool) => tool.path === path))
 }

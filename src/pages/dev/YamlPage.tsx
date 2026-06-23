@@ -35,7 +35,7 @@ export function YamlPage() {
         label="YAML input"
         value={input}
         onChange={setInput}
-        placeholder={'name: iLovePDFGuru\nversion: 1'}
+        placeholder={'name: SnapPDF\nversion: 1'}
       />
 
       <div className="flex gap-2">

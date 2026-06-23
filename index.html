@@ -3,31 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="SnapPDF" />
     <meta
       name="description"
-      content="iLovePDFGuru — free online PDF tools and browser utilities. Unlock, merge & split PDF, Base64, UUID, AES, JWT, JSON, YAML, and more."
+      content="SnapPDF — free PDF tools to merge, split, unlock, and sign PDFs in your browser. Private, fast, no upload required."
     />
     <meta
       name="keywords"
-      content="ilovepdfguru, pdf tools, unlock pdf, merge pdf, split pdf, sign pdf, base64 encode, uuid generator, aes encryption, jwt decoder, json formatter, free pdf tools"
+      content="snappdf, pdf tools, merge pdf, split pdf, unlock pdf, sign pdf, free pdf tools, pdf online, no upload pdf"
     />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="theme-color" content="#4f46e5" />
     <meta name="google-site-verification" content="WDSfIk7oOwjxwsKertfb7Qyi_22iT_Giy0Y2yIm1rBc" />
-    <meta property="og:site_name" content="iLovePDFGuru" />
+    <meta property="og:site_name" content="SnapPDF" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="iLovePDFGuru — Free Online PDF Tools" />
+    <meta property="og:title" content="SnapPDF — Free PDF Tools Online" />
     <meta
       property="og:description"
-      content="PDF merge, split, unlock, sign, and more — all free, all in your browser."
+      content="Merge, split, unlock, and sign PDFs for free — all in your browser, no upload."
     />
     <meta property="og:image" content="%VITE_SITE_URL%/og.svg" />
-    <meta property="og:image:alt" content="iLovePDFGuru — Free Online PDF Tools" />
+    <meta property="og:image:alt" content="SnapPDF — Free PDF Tools Online" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="%VITE_SITE_URL%/og.svg" />
     <link rel="canonical" href="%VITE_SITE_URL%/" />
-    <title>iLovePDFGuru — Free Online PDF Tools</title>
+    <title>SnapPDF — Free PDF Tools Online</title>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -35,16 +40,16 @@
           {
             "@type": "WebSite",
             "@id": "%VITE_SITE_URL%/#website",
-            "name": "iLovePDFGuru",
+            "name": "SnapPDF",
             "url": "%VITE_SITE_URL%",
-            "description": "Free online PDF tools and private browser utilities for PDF editing and everyday tasks.",
+            "description": "Free PDF tools to merge, split, unlock, and sign — private browser utilities for everyday tasks.",
             "publisher": { "@id": "%VITE_SITE_URL%/#organization" },
             "inLanguage": "en"
           },
           {
             "@type": "Organization",
             "@id": "%VITE_SITE_URL%/#organization",
-            "name": "iLovePDFGuru",
+            "name": "SnapPDF",
             "url": "%VITE_SITE_URL%",
             "logo": {
               "@type": "ImageObject",
@@ -55,7 +60,18 @@
       }
     </script>
   </head>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-P6DB382M');</script>
+  <!-- End Google Tag Manager -->
   <body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P6DB382M"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

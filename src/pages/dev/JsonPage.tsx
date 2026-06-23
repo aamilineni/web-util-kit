@@ -35,7 +35,7 @@ export function JsonPage() {
         label="JSON input"
         value={input}
         onChange={setInput}
-        placeholder='{"name":"iLovePDFGuru"}'
+        placeholder='{"name":"SnapPDF"}'
       />
 
       <div className="flex gap-2">

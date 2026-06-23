@@ -1,6 +1,6 @@
-# iLovePDFGuru
+# SnapPDF
 
-**iLovePDFGuru** — free online PDF tools and private browser utilities for PDF editing, developers, and everyday tasks. Everything runs locally in your browser. No backend, no uploads, no accounts.
+**SnapPDF** — free PDF tools and private browser utilities for PDF editing, developers, and everyday tasks. Everything runs locally in your browser. No backend, no uploads, no accounts.
 
 ## Tool categories
 
@@ -41,6 +41,15 @@ npm run build
 ```
 
 Deploy `dist/` to Vercel, Netlify, or Cloudflare Pages.
+
+## Android app
+
+The same codebase builds for Google Play via Capacitor. See [ANDROID.md](./ANDROID.md).
+
+```bash
+npm run cap:sync      # build + sync to android/
+npm run cap:android   # open Android Studio
+```
 
 ## Privacy
 

@@ -1,7 +1,9 @@
+import { useCallback, useState } from 'react'
 import { Shield, Sparkles, Zap } from 'lucide-react'
 import { Card } from '@/components/ui/Card'
 import { PageContainer } from '@/components/layout/PageContainer'
-import { ToolCard } from '@/components/home/ToolCard'
+import { CategoryToolsSection } from '@/components/home/CategoryToolsSection'
+import { SectionNav } from '@/components/home/SectionNav'
 import { ToolSearch } from '@/components/home/ToolSearch'
 import { TOOL_CATEGORIES } from '@/config/tools'
 import { SEO, homeJsonLd, usePageSeo } from '@/lib/seo'
@@ -27,35 +29,34 @@ const highlights = [
 export function HomePage() {
   usePageSeo(SEO.home, homeJsonLd)
 
+  const [openSections, setOpenSections] = useState<Record<string, boolean>>(() =>
+    Object.fromEntries(TOOL_CATEGORIES.map((category) => [category.id, category.id === 'pdf'])),
+  )
+
+  const toggleSection = useCallback((categoryId: string) => {
+    setOpenSections((current) => ({ ...current, [categoryId]: !current[categoryId] }))
+  }, [])
+
   return (
     <PageContainer width="full" className="space-y-5 sm:space-y-6">
       <ToolSearch />
+      <SectionNav
+        categories={TOOL_CATEGORIES}
+        openSections={openSections}
+        onToggle={toggleSection}
+      />
 
-      {TOOL_CATEGORIES.map((category, categoryIndex) => (
-        <section
-          key={category.id}
-          aria-labelledby={`category-${category.id}`}
-          className="animate-stagger-in"
-          style={{ animationDelay: `${categoryIndex * 80}ms` }}
-        >
-          <div className="mb-3 flex flex-wrap items-end justify-between gap-2 sm:mb-4">
-            <div>
-              <h2 id={`category-${category.id}`} className="text-lg font-bold text-slate-900 sm:text-xl">
-                {category.title}
-              </h2>
-              <p className="text-sm text-slate-600">{category.description}</p>
-            </div>
-            <span className="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-medium text-slate-600">
-              {category.tools.length} tools
-            </span>
-          </div>
-          <div className="tools-grid">
-            {category.tools.map((tool, index) => (
-              <ToolCard key={tool.id} tool={tool} index={index} />
-            ))}
-          </div>
-        </section>
-      ))}
+      <div className="space-y-4 sm:space-y-5">
+        {TOOL_CATEGORIES.map((category, categoryIndex) => (
+          <CategoryToolsSection
+            key={category.id}
+            category={category}
+            index={categoryIndex}
+            open={openSections[category.id] ?? false}
+            onToggle={() => toggleSection(category.id)}
+          />
+        ))}
+      </div>
 
       <section className="grid gap-3 sm:grid-cols-2 sm:gap-4 xl:grid-cols-3">
         {highlights.map((item, index) => (

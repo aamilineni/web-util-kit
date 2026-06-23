@@ -22,6 +22,11 @@
     background-attachment: fixed;
     min-height: 100dvh;
   }
+
+  .native-app body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 }
 
 @layer components {
@@ -48,6 +53,14 @@
     .tools-grid {
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
+  }
+
+  .tool-category-section {
+    @apply rounded-2xl border border-slate-200/80 bg-white/70 p-4 shadow-sm backdrop-blur-sm sm:p-6;
+  }
+
+  .tool-subsection {
+    @apply rounded-xl bg-slate-50/80 p-3 sm:p-4;
   }
 }
 

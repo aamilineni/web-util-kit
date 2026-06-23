@@ -2,3 +2,10 @@ node_modules
 dist
 .env
 .firebase
+
+# Android local build artifacts
+android/.gradle
+android/**/build
+android/local.properties
+*.apk
+*.aab
